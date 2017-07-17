@@ -1,0 +1,18 @@
+{
+  "name": "elearning",
+  "version": "1.0.0",
+  "description": "elearning project on node",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "varun",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.15.3",
+    "mongoose": "^4.11.3",
+    "morgan": "^1.8.2",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0"
+  }
+}
