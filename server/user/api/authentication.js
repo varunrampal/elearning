@@ -1,8 +1,5 @@
-var token = require('../utilites/token');
+var usertoken = require('../../utilities/token');
 var User = require('../models/user');
-var config = require('../../config');
-var secretKey = config.secretKey;
-var jsonwebtoken = require('jsonwebtoken');
 
 module.exports = function (app, express) {
 
@@ -18,7 +15,8 @@ module.exports = function (app, express) {
             password: req.body.password
         });
 
-        var token = token(user);
+        var token = usertoken(user);
+     
         user.save(function (err) {
             if (err) {
                 res.send(err);
@@ -26,6 +24,12 @@ module.exports = function (app, express) {
             }
           res.json({ success: true, message: 'User has been created!', token: token })
         });
+
+    });
+
+    api.get('/surender',function(req,res){
+
+         res.json({ success: true, message: 'User has been created!'})
 
     });
 return api;
