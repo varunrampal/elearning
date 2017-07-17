@@ -1,4 +1,5 @@
 var mongoose = require('mongoose');
+var bcrypt = require('bcrypt-nodejs');
 var Schema = mongoose.Schema;
 
 var UserSchema = new Schema({
@@ -9,7 +10,8 @@ var UserSchema = new Schema({
     password: { type: String, required: true }
 });
 
-
+//pre hook to mongodb save nethod
+//convert the password to hash before saving in the db
 UserSchema.pre('save', function (next) {
 
     var user = this;
@@ -24,6 +26,15 @@ UserSchema.pre('save', function (next) {
     });
 
 });
+
+UserSchema.methods.comparePassword = function(password){
+    
+    var user = this;
+
+    return bcrypt.compareSync(password,user.password);
+}
+
+module.exports = mongoose.model('User',UserSchema);
 
 
 

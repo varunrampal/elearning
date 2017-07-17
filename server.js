@@ -22,6 +22,17 @@ mongoose.connect(config.database,function(err)
   }
 });
 
+//adding a prefix to the api routes
+var api = require('./server/user/api/authentication')(app, express);
+app.use('/api', api);
+
+//default page
+app.get('/', function (req, res) {
+
+  res.sendFile(__dirname + '/public/index.html');
+
+});
+
 //setting up a server
 app.listen(config.port, function (err) {
 
