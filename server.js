@@ -16,6 +16,6 @@ mongoose.connect(config.database,function(err)
 {
   if(err) 
     {
-     console.log('error in connecting to the database');
+     console.log('errors in connecting to the database');
     }
 });
