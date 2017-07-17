@@ -14,8 +14,21 @@ app.use(express.static(__dirname+'/public'));
 //connect to the database
 mongoose.connect(config.database,function(err)
 {
-  if(err) 
-    {
-     console.log('errors in connecting to the elearning database');
+  if(err){
+     console.log(err);
     }
+  else{
+      console.log('connected to the database');
+  }
+});
+
+//setting up a server
+app.listen(config.port, function (err) {
+
+  if (err) {
+    console.log('error in connection');
+  }
+  else {
+    console.log('listening at port 3000');
+  }
 });
