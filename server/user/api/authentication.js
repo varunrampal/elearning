@@ -27,7 +27,7 @@ module.exports = function (app, express) {
 
     });
 
-        api.get('/varun',function(req,res){
+        api.get('/purshotam',function(req,res){
 
          res.json({ success: true, message: 'User has been created!'})
 
